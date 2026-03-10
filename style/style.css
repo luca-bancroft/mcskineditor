@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    border: 5px solid #1e1e1e;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: rgb(255, 255, 255);
+    font-family: "Hack", monospace;
+    font-size: 1.25rem;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #1e1e1e;
+    border-bottom: 5px solid #bcbcbc
+}
+
+.navbar a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
