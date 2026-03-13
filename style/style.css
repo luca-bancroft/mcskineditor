@@ -23,3 +23,29 @@ body {
     color: rgb(255, 255, 255);
     text-decoration: none;
 }
+
+.windows{
+    display:flex;
+    gap:20px;
+    padding:20px;
+}
+
+.skinWindow{
+    width:320px;
+    height:420px;
+    background:#2a2a2a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.editorWindow{
+    flex:1;
+    background:#f2f2f2;
+    min-height:420px;
+}
+
+#skin_container{
+    width:300px;
+    height:400px;
+}

@@ -4,23 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    
+    <title>MC Skin Editor</title>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css">
     <link rel="stylesheet" href="style/style.css">
-
-    <title>MC Skin Editor</title>
 </head>
-<body>
 
+<body>
     <div class="navbar">
         <p>MC Skin Editor</p>
+
         <div class="nav-links">
             <a href="#">Home</a>
-            <a href="#">Editor</a>
             <a href="#">Gallery</a>
         </div>
     </div>
 
+    <div class="windows">
+
+        <div class="skinWindow">
+            <canvas id="skin_container" width="300" height="400"></canvas>
+            <script src="https://unpkg.com/skinview3d/bundles/skinview3d.bundle.js"></script>
+            <script src="scripts/skinWindow.js"></script>
+        </div>
+
+        <div class="editorWindow">
+            <!-- Color palette -->
+            <!-- Brush selectors -->
+            <!-- Accessories menu -->
+            <!-- Upload skin -->
+        </div>
+
+    </div>
 
 </body>
 </html>
