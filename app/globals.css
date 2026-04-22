@@ -944,3 +944,50 @@ body {
     gap: 8px;
     flex-wrap: wrap;
 }
+
+.devLog {
+    width: 320px;
+    box-sizing: border-box;
+    padding: 16px 18px;
+    background: #2a2a2a;
+    border-radius: 8px;
+    border: 1px solid #3a3a3a;
+    font-family: "Hack", monospace;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.devLog-intro {
+    margin: 0;
+    font-size: 0.72rem;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.devLog-divider {
+    height: 1px;
+    background: #3a3a3a;
+    margin: 2px 0;
+}
+
+.devLog-label {
+    margin: 0;
+    font-size: 0.7rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.devLog-entry {
+    margin: 0;
+    font-size: 0.72rem;
+    color: #888;
+    display: flex;
+    gap: 8px;
+}
+
+.devLog-bullet {
+    color: #555;
+    flex-shrink: 0;
+}

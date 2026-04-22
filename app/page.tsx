@@ -105,6 +105,23 @@ function HomeContent() {
               </button>
             </div>
           </div>
+
+          <div className="devLog">
+            <p className="devLog-intro">
+              Hello! Thank you for using my Minecraft Skin Editor.
+            </p>
+            <p className="devLog-intro">
+              To get started, you can edit the default skin using the tools in the editor panel, or upload your own and work from there.
+            </p>
+            <p className="devLog-intro">
+              To publish your skin and see other users' creations in the community gallery, create an account using the button in the top right.
+            </p>
+            <div className="devLog-divider" />
+            <p className="devLog-label">Dev Log</p>
+            <p className="devLog-entry">
+              <span className="devLog-bullet">—</span> Added dev log and guide
+            </p>
+          </div>
         </div>
 
         <div className="editorWindow">
