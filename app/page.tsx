@@ -1,21 +1,21 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { Suspense, useState, useRef, useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import SkinViewer from "@/components/SkinViewer";
 import SkinEditor2D, { SkinEditor2DHandle } from "@/components/SkinEditor2D";
 import Navbar from "@/components/Navbar";
 import MySkins from "@/components/MySkins";
 import PublishModal from "@/components/PublishModal";
-import { useSearchParams } from "next/navigation";
 
 const DEFAULT_SKIN = "/images/steve.png";
 type Tool = "pencil" | "eraser" | "eyedropper" | "fill";
 
-export default function Home() {
+function HomeContent() {
   const { data: session } = useSession();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [skinUrl, setSkinUrl] = useState(DEFAULT_SKIN);
   const [activeTool, setActiveTool] = useState<Tool>("pencil");
@@ -29,6 +29,11 @@ export default function Home() {
   const [showPublish, setShowPublish] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const editorRef = useRef<SkinEditor2DHandle>(null);
+
+  useEffect(() => {
+    const skinParam = searchParams.get("skin");
+    if (skinParam) setSkinUrl(skinParam);
+  }, []);
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -54,12 +59,6 @@ export default function Home() {
     link.download = "skin.png";
     link.click();
   }
-
-  const searchParams = useSearchParams();
-  useEffect(() => {
-    const skinParam = searchParams.get("skin");
-    if (skinParam) setSkinUrl(skinParam);
-  }, []);
 
   const tools: { id: Tool; label: string; icon: string }[] = [
     { id: "pencil",     label: "Pencil",      icon: "fa-pencil"      },
@@ -91,7 +90,6 @@ export default function Home() {
               </button>
             </div>
 
-            {/* Skin actions */}
             <div className="skinActions">
               <button
                 className="skinActionBtn"
@@ -247,5 +245,13 @@ export default function Home() {
         />
       )}
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={null}>
+      <HomeContent />
+    </Suspense>
   );
 }
