@@ -1,9 +1,5 @@
-export const metadata = {
-  title: "MC Skin Editor",
-  description: "Minecraft skin editor",
-};
-
 import "./globals.css";
+import Providers from "./providers";
 
 export default function RootLayout({
   children,
@@ -17,8 +13,14 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        />
       </head>
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

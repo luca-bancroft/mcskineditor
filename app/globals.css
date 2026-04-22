@@ -8,11 +8,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     color: white;
     font-family: "Hack", monospace;
     font-size: 1.25rem;
-
     padding: 1rem;
     background-color: #1e1e1e;
     border-bottom: 5px solid #bcbcbc;
@@ -28,21 +26,921 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
+    align-items: flex-start;
+}
+
+.leftPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
 .skinWindow {
     width: 320px;
-    height: 420px;
     background: #2a2a2a;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    gap: 10px;
+}
+
+.editorWindow {
+    flex: 1;
+    min-width: 0;
+    background: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    font-family: "Hack", monospace;
+}
+
+.editorWindow h3 {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    color: #bcbcbc;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
+}
+
+.toolSection {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.toolSectionLabel {
+    font-size: 0.7rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 4px 0;
+}
+
+.editorBtn {
+    font-family: "Hack", monospace;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    background: #3a3a3a;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.15s;
+}
+
+.editorBtn:hover {
+    background: #4a4a4a;
+}
+
+.editorBtn.active {
+    border-color: #bcbcbc;
+    background: #1e1e1e;
+}
+
+.editorBtn i {
+    width: 14px;
+    text-align: center;
+}
+
+.colorRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.8rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.colorRow input[type="color"] {
+    width: 32px;
+    height: 32px;
+    border: 2px solid #555;
+    border-radius: 4px;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+}
+
+.brushSlider {
+    width: 100%;
+    accent-color: #bcbcbc;
+}
+
+.layerToggle {
+    display: flex;
+    gap: 8px;
+}
+
+.layerBtn {
+    font-family: "Hack", monospace;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    background: #3a3a3a;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.15s;
+}
+
+.layerBtn:hover {
+    background: #4a4a4a;
+}
+
+.layerBtn.active {
+    border-color: #bcbcbc;
+    background: #1e1e1e;
+}
+
+.skinMapRow {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.skinMapItem {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.editor2D {
+    background: #2a2a2a;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.editor2D-canvas-wrapper {
+    position: relative;
+    border: 2px solid #555;
+    border-radius: 4px;
+    line-height: 0;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.editor2D-canvas-wrapper canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    image-rendering: pixelated;
+}
+
+.guidePanel {
+    border: 2px solid #555;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.guideImage {
+    width: 100%;
+    height: 100%;
+    display: block;
+    image-rendering: pixelated;
+    padding: 0;
+    margin: 0;
+}
+
+.colorHistory {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 4px;
+}
+
+.colorSwatch {
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.colorSwatch:hover {
+    border-color: #bcbcbc;
+}
+
+.colorSwatch.active {
+    border-color: #ffffff;
+}
+
+.navbar-title {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-avatar {
+    border-radius: 50%;
+    border: 2px solid #bcbcbc;
+}
+
+.nav-username {
+    font-size: 0.85rem;
+    color: #bcbcbc;
+}
+
+.nav-auth-btn {
+    font-family: "Hack", monospace;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    background: #3a3a3a;
+    color: white;
+    border: 2px solid #bcbcbc;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s;
+}
+
+.nav-auth-btn:hover {
+    background: #4a4a4a;
+}
+
+.nav-loading {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.auth-page {
+    min-height: 100vh;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Hack", monospace;
+}
+
+.auth-card {
+    background: #2a2a2a;
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.25rem;
+    color: white;
+    font-weight: 500;
+}
+
+.auth-logo i {
+    color: #bcbcbc;
+    font-size: 1.5rem;
+}
+
+.auth-toggle {
+    display: flex;
+    background: #1e1e1e;
+    border-radius: 6px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.auth-toggle-btn {
+    flex: 1;
+    font-family: "Hack", monospace;
+    font-size: 0.8rem;
+    padding: 8px;
+    background: transparent;
+    color: #888;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.auth-toggle-btn.active {
+    background: #3a3a3a;
+    color: white;
+}
+
+.auth-heading {
+    text-align: center;
+    color: white;
+}
+
+.auth-heading h1 {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.auth-heading p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.auth-providers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-provider-btn {
+    font-family: "Hack", monospace;
+    font-size: 0.85rem;
+    padding: 12px 16px;
+    background: #3a3a3a;
+    color: white;
+    border: 2px solid #555;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.15s, border-color 0.15s;
+    width: 100%;
+}
+
+.auth-provider-btn:hover {
+    background: #4a4a4a;
+    border-color: #bcbcbc;
+}
+
+.auth-provider-btn i {
+    font-size: 1rem;
+}
+
+.auth-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0;
+}
+
+.auth-link {
+    font-family: "Hack", monospace;
+    font-size: 0.75rem;
+    background: none;
+    border: none;
+    color: #bcbcbc;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.auth-link:hover {
+    color: white;
+}
+
+.nav-page-btn {
+    font-family: "Hack", monospace;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    background: transparent;
+    color: #bcbcbc;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.15s;
+}
+
+.nav-page-btn:hover {
+    color: white;
+}
+
+.gallery-page {
+    padding: 40px;
+    font-family: "Hack", monospace;
+    color: white;
+}
+
+.gallery-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 16px;
+}
+
+.gallery-header h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.gallery-header p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.gallery-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 80px 0;
+    color: #555;
+}
+
+.gallery-empty i {
+    font-size: 3rem;
+}
+
+.gallery-empty p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.skinActions {
+    display: flex;
+    gap: 8px;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.skinActionBtn {
+    flex: 1;
+    font-family: "Hack", monospace;
+    font-size: 0.75rem;
+    padding: 8px 10px;
+    background: #3a3a3a;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background 0.15s;
+}
+
+.skinActionBtn:hover {
+    background: #4a4a4a;
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal-card {
+    background: #2a2a2a;
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 24px;
+    width: 90%;
+    max-width: 860px;
+    max-height: 80vh;
+    overflow-y: auto;
+    font-family: "Hack", monospace;
+    color: white;
+}
+
+.modal-card--sm {
+    max-width: 400px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 12px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1rem;
+    color: #bcbcbc;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.15s;
+}
+
+.modal-close:hover {
+    color: white;
+}
+
+.modal-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 40px 0;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+.modal-empty i {
+    font-size: 2.5rem;
+}
+
+.skins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.skin-card {
+    background: #1e1e1e;
+    border: 2px solid #444;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.skin-card-viewer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111;
+    padding: 8px;
+}
+
+.skin-card-info {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.skin-card-title {
+    margin: 0;
+    font-size: 0.8rem;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.skin-card-badge {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+    width: fit-content;
+}
+
+.skin-card-badge.published {
+    background: #1a3a1a;
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+.skin-card-badge.private {
+    background: #3a3a1a;
+    color: #bcbcbc;
+    border: 1px solid #555;
+}
+
+.skin-card-author {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    color: #888;
+}
+
+.skin-author-avatar {
+    border-radius: 50%;
+}
+
+.skin-card-actions {
+    display: flex;
+    border-top: 1px solid #333;
+}
+
+.skin-action-btn {
+    flex: 1;
+    padding: 8px;
+    background: none;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: color 0.15s, background 0.15s;
+    text-align: center;
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.editorWindow {
-    flex: 1;
-    background: #f2f2f2;
-    min-height: 420px;
-    padding: 15px;
+.skin-action-btn:hover {
+    color: white;
+    background: #2a2a2a;
+}
+
+.skin-action-btn.danger:hover {
+    color: #ff5555;
+    background: #2a1a1a;
+}
+
+.publish-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.publish-label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #bcbcbc;
+}
+
+.publish-input {
+    font-family: "Hack", monospace;
+    font-size: 0.85rem;
+    padding: 10px 12px;
+    background: #1e1e1e;
+    color: white;
+    border: 2px solid #555;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.15s;
+}
+
+.publish-input:focus {
+    border-color: #bcbcbc;
+}
+
+.publish-error {
+    font-size: 0.75rem;
+    color: #ff5555;
+    margin: 0;
+}
+
+.publish-btn {
+    font-family: "Hack", monospace;
+    font-size: 0.85rem;
+    padding: 10px 16px;
+    background: #3a3a3a;
+    color: white;
+    border: 2px solid #bcbcbc;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.15s;
+}
+
+.publish-btn:hover:not(:disabled) {
+    background: #4a4a4a;
+}
+
+.publish-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.nav-dropdown-wrapper {
+    position: relative;
+}
+
+.nav-user-btn {
+    font-family: "Hack", monospace;
+    font-size: 0.8rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: background 0.15s;
+}
+
+.nav-user-btn:hover {
+    background: #3a3a3a;
+}
+
+.nav-chevron {
+    font-size: 0.65rem;
+    color: #888;
+}
+
+.nav-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #2a2a2a;
+    border: 2px solid #444;
     border-radius: 8px;
+    min-width: 180px;
+    z-index: 200;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-dropdown-item {
+    font-family: "Hack", monospace;
+    font-size: 0.8rem;
+    padding: 10px 14px;
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.nav-dropdown-item:hover {
+    background: #3a3a3a;
+    color: white;
+}
+
+.nav-dropdown-item.danger:hover {
+    background: #2a1a1a;
+    color: #ff5555;
+}
+
+.nav-dropdown-divider {
+    height: 1px;
+    background: #444;
+    margin: 4px 0;
+}
+
+.nav-dropdown-edit {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 14px;
+}
+
+.nav-name-input {
+    font-family: "Hack", monospace;
+    font-size: 0.8rem;
+    padding: 6px 8px;
+    background: #1e1e1e;
+    color: white;
+    border: 2px solid #555;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nav-name-input:focus {
+    border-color: #bcbcbc;
+}
+
+.nav-name-save {
+    font-family: "Hack", monospace;
+    font-size: 0.75rem;
+    padding: 6px;
+    background: #3a3a3a;
+    color: white;
+    border: 2px solid #bcbcbc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.nav-name-save:hover {
+    background: #4a4a4a;
+}
+
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.gallery-search {
+    font-family: "Hack", monospace;
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    background: #2a2a2a;
+    color: white;
+    border: 2px solid #555;
+    border-radius: 4px;
+    outline: none;
+    width: 260px;
+    transition: border-color 0.15s;
+}
+
+.gallery-search:focus {
+    border-color: #bcbcbc;
+}
+
+.skin-action-btn.liked {
+    color: #ff5555;
+}
+
+.like-count {
+    font-size: 0.7rem;
+    font-family: "Hack", monospace;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #444;
+}
+
+.profile-avatar {
+    border-radius: 50%;
+    border: 3px solid #bcbcbc;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: "Hack", monospace;
+    color: white;
+}
+
+.profile-info h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #bcbcbc;
+}
+
+.profile-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.profile-name-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-name-edit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
